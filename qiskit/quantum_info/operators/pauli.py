@@ -451,6 +451,29 @@ class Pauli:
 
         return self
 
+
+    def permute_qubits(self,index1, index2):
+        """
+        permutate pauli at the indices.
+
+        Args:
+            index1-2: the indices of to-be-permuted paulis
+
+        Returns:
+            Pauli: self
+        """
+
+        znew = self._z
+        xnew = self._x
+
+        znew[[index1, index2]] = znew[[index2, index1]]
+        xnew[[index1, index2]] = xnew[[index2, index1]]
+
+        self._z = znew
+        self._x = xnew
+
+        return self
+
     @classmethod
     def random(cls, num_qubits, seed=None):
         """Return a random Pauli on number of qubits.
