@@ -49,6 +49,8 @@ class BasicAerProvider(BaseProvider):
     def get_backend(self, name=None, **kwargs):
         backends = self._backends.values()
 
+        print('test-YZ:qiskit-terra/qiskit/providers/basicaer')
+
         # Special handling of the `name` parameter, to support alias resolution
         # and deprecated names.
         if name:
@@ -62,6 +64,7 @@ class BasicAerProvider(BaseProvider):
             except LookupError:
                 raise QiskitBackendNotFoundError(
                     "The '{}' backend is not installed in your system.".format(name))
+        print('test-YZ:name=', name)
 
         return super().get_backend(name=name, **kwargs)
 

@@ -277,6 +277,7 @@ class QasmSimulatorPy(BaseBackend):
 
     def _set_options(self, qobj_config=None, backend_options=None):
         """Set the backend options for all experiments in a qobj"""
+        print('test-YZ: set backend options for all experiments')
         # Reset default options
         self._initial_statevector = self.DEFAULT_OPTIONS["initial_statevector"]
         self._chop_threshold = self.DEFAULT_OPTIONS["chop_threshold"]
@@ -405,6 +406,9 @@ class QasmSimulatorPy(BaseBackend):
         Returns:
             Result: Result object
         """
+
+        print('test-YZ: run job [qiskit-terra qiskit/providers/basicaer/qasm_simulator.py]')
+
         self._validate(qobj)
         result_list = []
         self._shots = qobj.config.shots
