@@ -462,6 +462,31 @@ class Pauli:
 
         return self
 
+    def permute_qubits_order(self,order):
+        """
+        permutate pauli at the indices.
+
+        Args:
+            index1-2: the indices of to-be-permuted paulis
+
+        Returns:
+            Pauli: self
+        """
+        znew = self._z
+        xnew = self._x
+
+        znew = znew[order]
+        xnew = xnew[order]
+
+        #for i in range(len(order)):
+        #    j = order[i]
+        #    znew[[i, j]] = znew[[j, i]]
+        #    xnew[[i, j]] = xnew[[j, i]]
+
+        self._z = znew
+        self._x = xnew
+
+        return self
 
     def permute_qubits(self,index1, index2):
         """
